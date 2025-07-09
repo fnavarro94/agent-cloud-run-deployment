@@ -1,0 +1,97 @@
+gcloud run deploy weather-agent \
+                  --source . \
+                  --port 8080 \
+                  --project appsantanafn94 \
+                  --allow-unauthenticated \
+                  --add-cloudsql-instances appsantanafn94:us-central1:adk-deployment \
+                  --update-env-vars SESSION_SERVICE_URI="postgresql+pg8000://postgres:postgres@postgres/?unix_sock=/cloudsql/appsantanafn94:us-central1:adk-deployment/.s.PGSQL.5432" \
+                  --region us-central1 \
+                  --concurrency 10 \
+                  --min-instances 2
+
+
+
+gcloud run deploy tipti-client-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --concurrency 10 \
+  --min-instances 2 \
+  --add-cloudsql-instances=appsantanafn94:us-central1:adk-deployment \
+  --update-env-vars="\
+GOOGLE_GENAI_USE_VERTEXAI=True,\
+GOOGLE_CLOUD_LOCATION=us-central1,\
+API_URL=https://api.tipti.market,\
+TIPTI_PASSWORD=W4y>KWEr4y&j8uG<,\
+SESSION_SERVICE_URI=postgresql+pg8000://postgres:postgres@postgres/?unix_sock=/cloudsql/appsantanafn94:us-central1:adk-deployment/.s.PGSQL.5432"
+
+
+gcloud run deploy tipti-client-agent \
+                  --source . \
+                  --port 8080 \
+                  --project appsantanafn94 \
+                  --allow-unauthenticated \
+                  --add-cloudsql-instances appsantanafn94:us-central1:adk-deployment \
+                  --update-env-vars SESSION_SERVICE_URI="postgresql+pg8000://postgres:postgres@postgres/?unix_sock=/cloudsql/appsantanafn94:us-central1:adk-deployment/.s.PGSQL.5432" \
+                  --region us-central1 \
+                  --concurrency 10 \
+                  --min-instances 2
+
+               
+gcloud run deploy bepetz_pet_parent_agent \
+                  --source . \
+                  --port 8080 \
+                  --project appsantanafn94 \
+                  --allow-unauthenticated \
+                  --add-cloudsql-instances appsantanafn94:us-central1:adk-deployment \
+                  --update-env-vars SESSION_SERVICE_URI="postgresql+pg8000://postgres:postgres@postgres/?unix_sock=/cloudsql/appsantanafn94:us-central1:adk-deployment/.s.PGSQL.5432" \
+                  --region us-central1
+                  --concurrency 10 \
+                  --min-instances 2
+
+gcloud run deploy weather-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --allow-unauthenticated \
+  --region us-central1 \
+  --concurrency 10 \
+  --min-instances 2
+
+
+
+
+gcloud run deploy weather-agent \
+  --project=appsantanafn94 \
+  --region=us-central1 \
+  --source . \
+  --port 8080 \
+  --allow-unauthenticated \
+  --update-env-vars=SESSION_SERVICE_URI="agentengine://projects/925554786909/locations/us-central1/reasoningEngines/8599597100184895488",LOG_LEVEL=debug
+
+
+
+gcloud run deploy weather-agent \
+                  --source . \
+                  --port 8080 \
+                  --project appsantanafn94 \
+                  --allow-unauthenticated \
+                  --update-env-vars=SESSION_SERVICE_URI="agentengine://projects/925554786909/locations/us-central1/reasoningEngines/8599597100184895488" \
+                  --region us-central1
+
+
+gcloud run deploy weather-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --min-instances 2 \
+  --concurrency 10 \
+  --allow-unauthenticated \
+  --region us-central1 \
+  --update-env-vars=\
+SESSION_SERVICE_URI="agentengine://projects/925554786909/locations/us-central1/reasoningEngines/8599597100184895488",\
+GOOGLE_CLOUD_PROJECT=appsantanafn94,\
+GOOGLE_CLOUD_LOCATION=global,\
+LOG_LEVEL=debug
