@@ -20,7 +20,7 @@ from google.adk.cli.fast_api import get_fast_api_app
 from pydantic import BaseModel
 from typing import Literal
 from google.cloud import logging as google_cloud_logging
-from tracing import CloudTraceLoggingSpanExporter
+from tracing_weather import CloudTraceLoggingSpanExporter
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider, export
 
@@ -57,8 +57,8 @@ trace.set_tracer_provider(provider)
 # Create FastAPI app with appropriate arguments
 app: FastAPI = get_fast_api_app(**app_args)
 
-app.title = "tipti-client-agent"
-app.description = "API for interacting with the Agent tipti_client_agent"
+app.title = "weather-agent"
+app.description = "API for interacting with the Agent weather-agent"
 
 
 class Feedback(BaseModel):
@@ -68,7 +68,7 @@ class Feedback(BaseModel):
     text: str | None = ""
     invocation_id: str
     log_type: Literal["feedback"] = "feedback"
-    service_name: Literal["tipti-client-agent"] = "tipti-client-agent"
+    service_name: Literal["weather-agent"] = "weather-agent"
     user_id: str = ""
 
 
