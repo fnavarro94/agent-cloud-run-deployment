@@ -1,3 +1,31 @@
+####################### Deploy with vertex ai session service
+
+gcloud run deploy tipti-client-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --concurrency 10 \
+  --min-instances 2 \
+  --env-vars-file=env.yaml   \
+  --memory 1Gi \       
+
+
+
+gcloud run deploy tipti-client-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --region us-central1 \
+  --memory 1Gi \
+  --allow-unauthenticated \
+  --concurrency 10 \
+  --min-instances 2 \
+  --env-vars-file env.yaml
+
+
+#######################
 gcloud run deploy weather-agent \
                   --source . \
                   --port 8080 \
@@ -9,6 +37,41 @@ gcloud run deploy weather-agent \
                   --concurrency 10 \
                   --min-instances 2
 
+
+deploy_and_manage_adk % gcloud run deploy tipti-client-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --concurrency 10 \
+  --min-instances 2 \
+  --add-cloudsql-instances=appsantanafn94:us-central1:adk-deployment \
+  --env-vars-file=env.yaml
+
+
+deploy_and_manage_adk % gcloud run deploy tipti-client-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --concurrency 10 \
+  --min-instances 2 \
+  --add-cloudsql-instances=appsantanafn94:us-central1:adk-deployment \
+  --env-vars-file=env.yaml
+
+
+ deploy_and_manage_adk % gcloud run deploy tipti-client-agent \
+  --source . \
+  --port 8080 \
+  --project appsantanafn94 \
+  --region us-central1 \
+  --allow-unauthenticated \
+  --concurrency 10 \
+  --min-instances 2 \
+  --add-cloudsql-instances=appsantanafn94:us-central1:adk-deployment \
+  --env-vars-file=env.yaml
 
 
 gcloud run deploy tipti-client-agent \
