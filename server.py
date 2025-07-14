@@ -57,7 +57,7 @@ trace.set_tracer_provider(provider)
 # Create FastAPI app with appropriate arguments
 app: FastAPI = get_fast_api_app(**app_args)
 
-app.title = "tipti-client-agent"
+app.title = "tipti-client-agent-dev"
 app.description = "API for interacting with the Agent tipti_client_agent"
 
 
@@ -68,7 +68,7 @@ class Feedback(BaseModel):
     text: str | None = ""
     invocation_id: str
     log_type: Literal["feedback"] = "feedback"
-    service_name: Literal["tipti-client-agent"] = "tipti-client-agent"
+    service_name: Literal["tipti-client-agent-dev"] = "tipti-client-agent-dev"
     user_id: str = ""
 
 
